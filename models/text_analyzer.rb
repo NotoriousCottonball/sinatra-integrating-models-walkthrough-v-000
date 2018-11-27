@@ -19,7 +19,7 @@ class TextAnalyzer
  
   def most_used_letter
     array = text.gsub(/[^a-z]/, '').split('')
-    
+    array.each_with_object(Hash.new(0)) { |v, h| h[v] += 1 }.max_by(&:last)
     
   end
 end
